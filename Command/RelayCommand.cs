@@ -18,7 +18,6 @@ namespace Test_Assignment.Command
             _canExecuteAction = null;
         }
 
-
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
