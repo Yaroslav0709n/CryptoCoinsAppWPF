@@ -1,0 +1,67 @@
+﻿<Window x:Class="Test_Assignment.InformationAboutCoin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test_Assignment"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        mc:Ignorable="d"
+        Title="InformationAboutCoin" Height="570" Width="570">
+    <Grid Style="{DynamicResource GridStyle}">
+        <StackPanel Orientation="Vertical">
+
+            <TextBlock  Style="{DynamicResource MainText}" Text="{Binding Name, StringFormat='Information about {0}'}" FontSize="20" Grid.Row="0"></TextBlock>
+            <TextBlock Style="{DynamicResource MainText}" Text="{Binding Symbol, StringFormat='Symbol: {0}'}" FontSize="15" Grid.Row="1"></TextBlock>
+            <TextBlock Style="{DynamicResource MainText}" Text="{Binding PriceUsd, StringFormat='Price: ${0}'}" FontSize="15" Grid.Row="2"></TextBlock>
+            <TextBlock Style="{DynamicResource MainText}" Text="{Binding MarketCapUsd, StringFormat='Market Cap: {0}'}" FontSize="15" Grid.Row="2"></TextBlock>
+            <TextBlock Style="{DynamicResource MainText}" Text="{Binding VolumeUsd24Hr, StringFormat='Volume(24Hr): {0}'}" FontSize="15" Grid.Row="3"></TextBlock>
+            <TextBlock Style="{DynamicResource MainText}" Text="{Binding ChangePercent24Hr, StringFormat='Change(24Hr): {0}%'}" FontSize="15" Grid.Row="4"></TextBlock>
+            <TextBlock Style="{DynamicResource MainText}" Grid.Row="0" FontSize="20">Information about market</TextBlock>
+            
+            <ListView  Style="{DynamicResource List}" ItemsSource="{Binding Exchanges}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Exchange" Width="100" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding ExchangeId}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Pair" Width="100">
+                            <GridViewColumn.DisplayMemberBinding>
+                                <MultiBinding StringFormat="{}{0}/{1}">
+                                    <Binding Path="BaseSymbol" />
+                                    <Binding Path="QuoteSymbol" />
+                                </MultiBinding>
+                            </GridViewColumn.DisplayMemberBinding>
+                        </GridViewColumn>
+                        <GridViewColumn  Header="Price" Width="100" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{DynamicResource ItemList}" Text="{Binding RoundedPriceUsd, StringFormat='${0}'}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Volume(24Hr)" Width="120" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding RoundedVolumeUsd24Hr}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Volume(%)" Width="120" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <TextBlock Text="{Binding RoundedVolumePercent, StringFormat='{}{0}%'}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>
+    
