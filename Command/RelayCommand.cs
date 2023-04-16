@@ -12,6 +12,7 @@ namespace Test_Assignment.Command
         private readonly Action<object> _executeAction;
         private readonly Predicate<object> _canExecuteAction;
 
+
         public RelayCommand(Action<object> executeAction)
         {
             _executeAction = executeAction;
