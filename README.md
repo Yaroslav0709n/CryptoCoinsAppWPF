@@ -11,7 +11,7 @@
 - [x] On which crypto exchanges can I trade this coin.
 - [x] Ability to see the top 10 coins that can be traded.
 - [x] Choice between color themes:
-      * dark
-      * light
+    * dark
+    * light
 - [x] Search for coins by name.   
 
