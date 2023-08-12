@@ -13,5 +13,9 @@
 - [x] Choice between color themes:
     * dark
     * light
-- [x] Search for coins by name.   
+- [x] Search for coins by name.
+## Screenshots
+![](https://github.com/Yaroslav0709n/CryptoCoinsAppWPF/blob/main/images/1img.PNG)
+![](https://github.com/Yaroslav0709n/CryptoCoinsAppWPF/blob/main/images/2img.PNG)
+
 
